@@ -1,0 +1,143 @@
+<style>
+    /* Add this CSS code to your styles.css file */
+    /* You can modify the styles to fit your design preferences */
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .login-container {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      text-align: center;
+    }
+    
+    h2 {
+      color: #333;
+    }
+    
+    label {
+      display: block;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      outline: none;
+    }
+    
+    button {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    
+    button:hover {
+      background: #555;
+    }
+    
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    
+    .login-result {
+      color: green;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    
+    
+      .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      
+      .login-result {
+        color: green;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+    </style><body>
+    <section id="login">
+      <div class="login-container">
+        <h2>Login</h2>
+        <form onsubmit="return validateForm()">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+          <div id="usernameError" class="error-message"></div>
+          
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+          <div id="passwordError" class="error-message"></div>
+          
+          <div id="loginResult" class="login-result"></div>
+          
+          <button type="submit">Login</button>
+    <a href="#" id="cancelButton" onclick="goBack()">❎</a>
+        </form>
+      </div>
+    </section>
+    
+    <script>
+    function validateForm() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      
+      var usernameError = document.getElementById("usernameError");
+      var passwordError = document.getElementById("passwordError");
+      var loginResult = document.getElementById("loginResult");
+      
+      usernameError.innerHTML = "";
+      passwordError.innerHTML = "";
+      loginResult.innerHTML = "";
+    
+      var isValid = true;
+    
+      if (username === "") {
+        usernameError.innerHTML = "Username is required.";
+        isValid = false;
+      }
+    
+      if (password === "") {
+        passwordError.innerHTML = "Password is required.";
+        isValid = false;
+      }
+    
+      if (isValid) {
+        if (password === "correctPassword") {
+          loginResult.innerHTML = "Correct password. Logging in...";
+        } else {
+          loginResult.innerHTML = "Invalid password.";
+          isValid = false;
+        }
+      }
+    
+      return isValid;
+    
+    }
+    function goBack() {
+      window.history.back(); // Go back to the previous page
+    }
+    </script>
+    
+    </body>
